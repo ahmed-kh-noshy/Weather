@@ -56,15 +56,12 @@
 		B0D5C0542A7D1BDF007C7B7B /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				B0D5C0552A7D1BDF007C7B7B /* AppDelegate.swift */,
+				B0D5C0572A7D1BDF007C7B7B /* SceneDelegate.swift */,
 				B0D5C06B2A7D1E72007C7B7B /* Controller */,
 				B0D5C06A2A7D1E2A007C7B7B /* View */,
 				B0D5C0692A7D1E04007C7B7B /* Model */,
-				B0D5C0552A7D1BDF007C7B7B /* AppDelegate.swift */,
-				B0D5C0572A7D1BDF007C7B7B /* SceneDelegate.swift */,
-				B0D5C0592A7D1BDF007C7B7B /* ViewController.swift */,
-				B0D5C05B2A7D1BDF007C7B7B /* Main.storyboard */,
 				B0D5C05E2A7D1BE0007C7B7B /* Assets.xcassets */,
-				B0D5C0602A7D1BE0007C7B7B /* LaunchScreen.storyboard */,
 				B0D5C0632A7D1BE0007C7B7B /* Info.plist */,
 			);
 			path = Weather;
@@ -80,6 +77,8 @@
 		B0D5C06A2A7D1E2A007C7B7B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B0D5C0602A7D1BE0007C7B7B /* LaunchScreen.storyboard */,
+				B0D5C05B2A7D1BDF007C7B7B /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -87,6 +86,7 @@
 		B0D5C06B2A7D1E72007C7B7B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B0D5C0592A7D1BDF007C7B7B /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
