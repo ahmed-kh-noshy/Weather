@@ -38,7 +38,7 @@
                                                 <rect key="frame" x="50" y="0.0" width="253" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIh-uS-wHJ">
                                                 <rect key="frame" x="313" y="0.99999999999999645" width="40" height="38.333333333333329"/>
@@ -48,6 +48,9 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <action selector="searchButton:" destination="lpU-bx-6Mi" eventType="touchUpInside" id="Ki4-6Y-Djg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -110,6 +113,7 @@
                     <connections>
                         <outlet property="cityLabel" destination="mkv-60-nA0" id="HoI-HC-ATO"/>
                         <outlet property="conditionImageView" destination="vWc-5o-7E6" id="anl-qi-h2j"/>
+                        <outlet property="searchTextField" destination="EkS-ZB-KtX" id="WvU-Fp-gb7"/>
                         <outlet property="temperatureLabel" destination="5na-Wq-5a0" id="DOY-Ok-84U"/>
                     </connections>
                 </viewController>
