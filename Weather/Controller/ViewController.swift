@@ -6,10 +6,11 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController, UITextFieldDelegate {
+import CoreLocation
+class ViewController: UIViewController {
 
     var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -20,12 +21,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         searchTextField.endEditing(true)
         
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        locationManager.requestWhenInUseAuthorization()
+        weatherManager.delegate = self
+        searchTextField.delegate = self
+    }
+    
+    
+}
+
+extension ViewController: UITextFieldDelegate{
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
         return true
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text == "" {
+        if textField.text != "" {
             return true
         }else {
             textField.placeholder = "type some thing"
@@ -39,9 +53,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         searchTextField.text = ""
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        searchTextField.delegate = self
-    }
+    
 }
 
+extension ViewController: weatherManagerDelegate{
+    
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.temperatureString
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            self.cityLabel.text = weather.cityName
+            }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}
