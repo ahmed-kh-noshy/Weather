@@ -23,12 +23,14 @@ class WeatherViewController: UIViewController {
     }
     
     @IBAction func locationButton(_ sender: UIButton) {
+        locationManager.requestLocation()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        locationManager.delegate = self
         weatherManager.delegate = self
         searchTextField.delegate = self
     }
@@ -84,7 +86,6 @@ extension WeatherViewController: CLLocationManagerDelegate{
             let lon = location.coordinate.longitude
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
         }
-        print("test")
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
